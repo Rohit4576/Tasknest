@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TaskNest — My Tasks</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header class="top">
+  <a class="logo"><span class="logo-icon">✓</span><span>TaskNest</span></a>
+  <nav><button class="filter active" data-filter="all">All tasks</button><button class="filter" data-filter="pending">Pending</button><button class="filter" data-filter="completed">Completed</button></nav>
+  <div class="top-right"><span id="today"></span><span class="user">R</span></div>
+</header>
+<main class="wrap">
+  <section class="intro">
+    <div><p class="kicker">YOUR DAILY PLANNER</p><h1>Stay on top of <span>your work.</span></h1><p class="sub">Keep your tasks clear, simple, and moving forward.</p></div>
+    <button class="add-btn" id="newTask">＋ Add a task</button>
+  </section>
+  <section class="overview">
+    <div class="overview-title"><div><h2>Overview</h2><p>A quick look at your workload</p></div><span class="date-chip" id="dateChip"></span></div>
+    <div class="metrics">
+      <article><span class="metric-icon blue">▤</span><div><small>Total tasks</small><strong id="total">0</strong></div></article>
+      <article><span class="metric-icon orange">◷</span><div><small>Pending</small><strong id="pending">0</strong></div></article>
+      <article><span class="metric-icon green">✓</span><div><small>Completed</small><strong id="completed">0</strong></div></article>
+      <article class="progress-card"><div><small>Overall progress</small><strong id="rate">0%</strong></div><div class="progress"><i id="progressBar"></i></div></article>
+    </div>
+  </section>
+  <section class="work">
+    <div class="work-head"><div><h2>My task list</h2><p id="listSubtitle">Your latest tasks appear here.</p></div><label class="search">⌕ <input id="search" placeholder="Find a task"></label></div>
+    <div class="list-head"><span>Task details</span><span>Priority</span><span>Due date</span><span>Status / Actions</span></div>
+    <div id="taskList"><p class="empty">Loading tasks...</p></div>
+    <footer><span id="shownCount">0 tasks</span><span>TaskNest workspace</span></footer>
+  </section>
+  <p class="footnote">A clear plan makes a better day.</p>
+</main>
+<div class="overlay hidden" id="overlay"><section class="dialog">
+  <div class="dialog-head"><div><p class="kicker">TASK DETAILS</p><h2 id="dialogTitle">Add a new task</h2></div><button class="x" id="close">×</button></div>
+  <form id="form">
+    <label>Task title<input id="title" required maxlength="120" placeholder="e.g. Finish project documentation"></label>
+    <label>Description <small>Optional</small><textarea id="details" rows="3" maxlength="500" placeholder="Add some details about this task"></textarea></label>
+    <div class="fields"><label>Due date<input type="date" id="due"></label><label>Priority<select id="priority"><option>Low</option><option selected>Medium</option><option>High</option></select></label></div>
+    <p id="error"></p><div class="dialog-actions"><button type="button" class="secondary" id="cancel">Cancel</button><button class="add-btn" id="save">Save task</button></div>
+  </form>
+</section></div>
+<script src="/static/script.js"></script>
+</body></html>
